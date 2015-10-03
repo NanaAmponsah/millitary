@@ -12,6 +12,13 @@
 */
 
 Route::get('/','PagesController@index');
+Route::get('index','PagesController@index');
+Route::get('login','LoginController@index');
+Route:get('logout','LoginController@logout');
+Route::post('login','LoginController@signin');
 Route::get('files','DocumentsController@files');
 Route::post('files','DocumentsController@storeDocument');
 Route::get('files/{id}','DocumentsController@delete_file');
+Route::get('personel','PersonnelController@personel');
+Route::get('add_new','PagesController@add_user');
+Route::post('add_new','PagesController@register');

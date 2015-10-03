@@ -27,6 +27,9 @@
     <!-- Plugin -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/chartist-js/chartist.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/jvectormap/jquery-jvectormap.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/datatables-bootstrap/dataTables.bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/datatables-fixedheader/dataTables.fixedHeader.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/datatables-responsive/dataTables.responsive.css') }}">
 
     <!-- Page -->
     <link rel="stylesheet" href="{{ asset('assets/css/../fonts/weather-icons/weather-icons.css') }}">
@@ -127,7 +130,7 @@
                         </li>
                         <li class="divider" role="presentation"></li>
                         <li role="presentation">
-                            <a href="javascript:void(0)" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout</a>
+                            <a href="{{ asset('logout') }}" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout</a>
                         </li>
                     </ul>
                 </li>
@@ -175,6 +178,11 @@
         <!-- Scripts -->
         <script src="{{ asset('assets/js/core.js') }}"></script>
         <script src="{{ asset('assets/js/site.js') }}"></script>
+        <script src="{{ asset('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('assets/vendor/datatables-fixedheader/dataTables.fixedHeader.js') }}"></script>
+        <script src="{{ asset('assets/vendor/datatables-bootstrap/dataTables.bootstrap.js') }}"></script>
+        <script src="{{ asset('assets/vendor/datatables-responsive/dataTables.responsive.js') }}"></script>
+        <script src="{{ asset('assets/vendor/datatables-tabletools/dataTables.tableTools.js') }}"></script>
 
         <script src="{{ asset('assets/js/sections/menu.js') }}"></script>
         <script src="{{ asset('assets/js/sections/menubar.js') }}"></script>
@@ -535,6 +543,129 @@
                 })();
 
             });
+        </script>
+        <script>
+            (function(document, window, $) {
+                'use strict';
+
+                var Site = window.Site;
+
+                $(document).ready(function($) {
+                    Site.run();
+                });
+
+                // Fixed Header Example
+                // --------------------
+                (function() {
+                    // initialize datatable
+                    var table = $('#exampleFixedHeader').DataTable({
+                        responsive: true,
+                        "bPaginate": false,
+                        "sDom": "t" // just show table, no other controls
+                    });
+
+                    // initialize FixedHeader
+                    var offsetTop = 0;
+                    if ($('.site-navbar').length > 0) {
+                        offsetTop = $('.site-navbar').eq(0).innerHeight();
+                    }
+                    var fixedHeader = new FixedHeader(table, {
+                        offsetTop: offsetTop
+                    });
+
+                    // redraw fixedHeaders as necessary
+                    $(window).resize(function() {
+                        fixedHeader._fnUpdateClones(true);
+                        fixedHeader._fnUpdatePositions();
+                    });
+                })();
+
+                // Individual column searching
+                // ---------------------------
+                (function() {
+                    $(document).ready(function() {
+                        var defaults = $.components.getDefaults("dataTable");
+
+                        var options = $.extend(true, {}, defaults, {
+                            initComplete: function() {
+                                this.api().columns().every(function() {
+                                    var column = this;
+                                    var select = $(
+                                            '<select class="form-control width-full"><option value=""></option></select>'
+                                    )
+                                            .appendTo($(column.footer()).empty())
+                                            .on('change', function() {
+                                                var val = $.fn.dataTable.util.escapeRegex(
+                                                        $(this).val()
+                                                );
+
+                                                column
+                                                        .search(val ? '^' + val + '$' : '',
+                                                        true, false)
+                                                        .draw();
+                                            });
+
+                                    column.data().unique().sort().each(function(
+                                            d, j) {
+                                        select.append('<option value="' + d +
+                                                '">' + d + '</option>')
+                                    });
+                                });
+                            }
+                        });
+
+                        $('#exampleTableSearch').DataTable(options);
+                    });
+                })();
+
+                // Table Tools
+                // -----------
+                (function() {
+                    $(document).ready(function() {
+                        var defaults = $.components.getDefaults("dataTable");
+
+                        var options = $.extend(true, {}, defaults, {
+                            "aoColumnDefs": [{
+                                'bSortable': false,
+                                'aTargets': [-1]
+                            }],
+                            "iDisplayLength": 5,
+                            "aLengthMenu": [
+                                [5, 10, 25, 50, -1],
+                                [5, 10, 25, 50, "All"]
+                            ],
+                            "sDom": '<"dt-panelmenu clearfix"Tfr>t<"dt-panelfooter clearfix"ip>',
+                            "oTableTools": {
+                                "sSwfPath": "../../assets/vendor/datatables-tabletools/swf/copy_csv_xls_pdf.swf"
+                            }
+                        });
+
+                        $('#exampleTableTools').dataTable(options);
+                    });
+                })();
+
+                // Table Add Row
+                // -------------
+
+                (function() {
+                    $(document).ready(function() {
+                        var defaults = $.components.getDefaults("dataTable");
+
+                        var t = $('#exampleTableAdd').DataTable(defaults);
+
+                        $('#exampleTableAddBtn').on('click', function() {
+                            t.row.add([
+                                'Adam Doe',
+                                'New Row',
+                                'New Row',
+                                '30',
+                                '2015/10/15',
+                                '$20000'
+                            ]).draw();
+                        });
+                    });
+                })();
+            })(document, window, jQuery);
         </script>
 
 </body>

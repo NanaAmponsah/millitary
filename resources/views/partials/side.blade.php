@@ -56,7 +56,7 @@
                                 </a>
                             </li>
                             <li class="site-menu-item">
-                                <a class="animsition-link" href="pages/faq.html" data-slug="page-faq">
+                                <a class="animsition-link" href="{{ url('personel') }}" data-slug="page-faq">
                                     <i class="site-menu-icon " aria-hidden="true"></i>
                                     <span class="site-menu-title">Manage Personnels</span>
                                 </a>
@@ -133,6 +133,30 @@
 
                         </ul>
                     </li>
+                    <li class="site-menu-category">Manage Users</li>
+                    <li class="site-menu-item has-sub">
+                        <a href="javascript:void(0)" data-slug="structure">
+                            <i class="site-menu-icon wb-plugin" aria-hidden="true"></i>
+                            <span class="site-menu-title">Manage</span>
+                            <span class="site-menu-arrow"></span>
+                        </a>
+                        <ul class="site-menu-sub">
+                            <li class="site-menu-item">
+                                <a class="animsition-link" href="{{ url('add_new') }}" data-slug="structure-alerts">
+                                    <i class="site-menu-icon " aria-hidden="true"></i>
+                                    <span class="site-menu-title">Add User</span>
+                                </a>
+                            </li>
+                            <li class="site-menu-item">
+                                <a class="animsition-link" href="structure/blockquotes.html" data-slug="structure-blockquotes">
+                                    <i class="site-menu-icon " aria-hidden="true"></i>
+                                    <span class="site-menu-title">Edit Users</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
 
 
                 </ul>
@@ -142,14 +166,14 @@
         </div>
     </div>
     <div class="site-menubar-footer">
-        <a href="javascript: void(0);" class="fold-show" data-placement="top" data-toggle="tooltip"
+        <a href="{{ asset('add_new') }}}}" class="fold-show" data-placement="top"
            data-original-title="Settings">
             <span class="icon wb-settings" aria-hidden="true"></span>
         </a>
         <a href="javascript: void(0);" data-placement="top" data-toggle="tooltip" data-original-title="Lock">
             <span class="icon wb-eye-close" aria-hidden="true"></span>
         </a>
-        <a href="javascript: void(0);" data-placement="top" data-toggle="tooltip" data-original-title="Logout">
+        <a href="{{ url('logout') }}" data-placement="top" data-toggle="tooltip" data-original-title="Logout">
             <span class="icon wb-power" aria-hidden="true"></span>
         </a>
     </div>
