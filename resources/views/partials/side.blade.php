@@ -49,8 +49,8 @@
                             <span class="site-menu-arrow"></span>
                         </a>
                         <ul class="site-menu-sub">
-                            <li class="site-menu-item has-sub">
-                                <a href="javascript:void(0)" data-slug="">
+                            <li class="site-menu-item ">
+                                <a href="{{url('add_personnel')}}" data-slug="">
                                     <i class="site-menu-icon " aria-hidden="true"></i>
                                     <span class="site-menu-title">Add New Personnel</span>
                                 </a>

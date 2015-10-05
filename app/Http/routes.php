@@ -13,12 +13,23 @@
 
 Route::get('/','PagesController@index');
 Route::get('index','PagesController@index');
+Route::get('add_new','PagesController@add_user');
+Route::post('add_new','PagesController@register');
+
+
 Route::get('login','LoginController@index');
 Route:get('logout','LoginController@logout');
 Route::post('login','LoginController@signin');
+
 Route::get('files','DocumentsController@files');
 Route::post('files','DocumentsController@storeDocument');
 Route::get('files/{id}','DocumentsController@delete_file');
+
 Route::get('personel','PersonnelController@personel');
-Route::get('add_new','PagesController@add_user');
-Route::post('add_new','PagesController@register');
+Route::get('add_personnel','PersonnelController@add_personnel');
+Route::post('add_personnel','PersonnelController@store_personnel');
+Route::get('personel/{id}','PersonnelController@delete_personnel');
+Route::put('edit_personnel/{id}','PersonnelController@update_personnel');
+Route::get('edit_personnel/{id}','PersonnelController@edit_personnel');
+
+

@@ -62,6 +62,7 @@
     <div class="page-content vertical-align-middle">
       <div class="brand">
         <img class="brand-img" src="{{ asset('assets/images/GAF.png') }}" alt="...">
+        <h1 class="brand-text">DEPLOYMENT SYSTEM </h1>
         <h2 class="brand-text">GHANA ARMED FORCES</h2>
       </div>
       @if( session()->has('error_message') )

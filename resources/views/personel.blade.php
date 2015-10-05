@@ -11,43 +11,50 @@
   <div class="page-content">
     <!-- Panel Basic -->
     <div class="panel">
-      <header class="panel-heading">
-        <div class="panel-actions"></div>
-        <h3 class="panel-title">Basic</h3>
-      </header>
+      @if(session()->has('message'))
+        <div class="alert alert-success">
+          {{ session('message') }}
+        </div>
+      @endif
       <div class="panel-body">
         <table class="table table-hover dataTable table-striped width-full" data-plugin="dataTable">
           <thead>
           <tr>
+            <th>Service No</th>
             <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Date</th>
-            <th>Salary</th>
+            <th>Gender</th>
+            <th>Date of Birth</th>
+            <th>Department</th>
+            <th>Rank</th>
+            <th>Action</th>
           </tr>
           </thead>
           <tfoot>
           <tr>
+            <th>Service No</th>
             <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Date</th>
-            <th>Salary</th>
+            <th>Gender</th>
+            <th>Date of Birth</th>
+            <th>Department</th>
+            <th>Rank</th>
+            <th>Action</th>
           </tr>
           </tfoot>
+
           <tbody>
+          @foreach($personnel as $person)
           <tr>
-            <td>Damon</td>
-            <td>5516 Adolfo Green</td>
-            <td>Littelhaven</td>
-            <td>85</td>
-            <td>2014/06/13</td>
-            <td>$553,536</td>
+            <td>{{ $person->serviceno }}</td>
+            <td>{{ $person->firstname }}&nbsp;{{ $person->lastname }} </td>
+            <td>{{ $person->gender }}</td>
+            <td>{{ $person->dob}}</td>
+            <td>{{ $person->depart }}</td>
+            <td>{{ $person->rankno }}</td>
+            <td> <a href="{{ url('/edit_personnel',$person->id) }}"><i class="icon wb-eye" aria-hidden="true"></i></a> &nbsp; <a href="{{ url('/personel',$person->id) }}"><i class="icon wb-trash" aria-hidden="true"></i></a></td>
           </tr>
-          <tr>
+          @endforeach
           </tbody>
+
         </table>
       </div>
     </div>
