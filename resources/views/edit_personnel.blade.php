@@ -43,14 +43,29 @@
                         <div class="form-group form-material">
                             <label class="control-label" for="select">Rank</label>
                             <select  name="rankno" class="form-control" id="select">
-                                <option value="{{ $personnel->rankno }}" selected >{{ $personnel->rankno }}</option>
-                                <option value="Pte">Pte</option>
-                                <option value="L/Cpl">L/Cpl</option>
-                                <option value="Clp">Clp</option>
-                                <option value="Sgt">Sgt</option>
-                                <option value="S/Sgt">S/Sgt</option>
-                                <option value="WOII">WOII</option>
-                                <option value="WOI">WOI</option>
+                                <option value="{{ $personnel->rankno }}" selected >
+                                    @if($personnel->rankno=='1')
+                                        {{ 'Pte' }}
+                                    @elseif($personnel->rankno=='2')
+                                        {{ 'L/Cpl' }}
+                                    @elseif($personnel->rankno=='3')
+                                        {{ 'Cpl' }}
+                                    @elseif($personnel->rankno=='4')
+                                        {{ 'Sgt' }}
+                                    @elseif($personnel->rankno=='5')
+                                        {{ 'S/Sgt' }}
+                                    @elseif($personnel->rankno=='6')
+                                        {{ 'WOII' }}
+                                    @elseif($personnel->rankno=='7')
+                                        {{ 'WOI' }}
+                                    @endif</option>
+                                <option value="1">Pte</option>
+                                <option value="2">L/Cpl</option>
+                                <option value="3">Clp</option>
+                                <option value="4">Sgt</option>
+                                <option value="5">S/Sgt</option>
+                                <option value="6">WOII</option>
+                                <option value="7">WOI</option>
                             </select>
                         </div>
                         <div class="form-group form-material">

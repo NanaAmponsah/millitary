@@ -83,7 +83,7 @@
         </button>
         <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
             <img class="navbar-brand-logo" src="{{ asset('assets/images/GAF.png') }}" title="Remark">
-            <span class="navbar-brand-text">DEPLOY'T SYSTEM</span>
+            <span class="navbar-brand-text">GAF SYSTEM</span>
         </div>
     </div>
 
@@ -127,12 +127,9 @@
                     </a>
                     <ul class="dropdown-menu" role="menu">
 
+
                         <li role="presentation">
-                            <a href="javascript:void(0)" role="menuitem"><i class="icon wb-settings" aria-hidden="true"></i> Settings</a>
-                        </li>
-                        <li class="divider" role="presentation"></li>
-                        <li role="presentation">
-                            <a href="{{ url('logout') }}" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout</a>
+                            <a href="{{ url('clients/logout') }}" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout</a>
                         </li>
                     </ul>
                 </li>
@@ -145,12 +142,12 @@
         <!-- End Navbar Collapse -->
 
         <!-- Site Navbar Seach -->
-        @include('partials/side')
+        @include('partials/clients_side')
                 <!-- Page -->
 
-          @yield('content')
+        @yield('content')
 
-        <!-- Footer -->
+                <!-- Footer -->
         <footer class="site-footer">
             <span class="site-footer-legal">© 2015 Military</span>
         </footer>

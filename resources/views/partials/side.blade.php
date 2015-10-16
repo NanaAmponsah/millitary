@@ -45,7 +45,7 @@
                     <li class="site-menu-item has-sub">
                         <a href="javascript:void(0)" data-slug="page">
                             <i class="site-menu-icon wb-file" aria-hidden="true"></i>
-                            <span class="site-menu-title">Personal Mgmt</span>
+                            <span class="site-menu-title">Personnel Mgmt</span>
                             <span class="site-menu-arrow"></span>
                         </a>
                         <ul class="site-menu-sub">
@@ -73,18 +73,23 @@
                         </a>
                         <ul class="site-menu-sub">
                             <li class="site-menu-item">
-                                <a class="animsition-link" href="uikit/buttons.html" data-slug="uikit-buttons">
-                                    <i class="site-menu-icon " aria-hidden="true"></i>
-                                    <span class="site-menu-title">Make Selection</span>
-                                </a>
-                            </li>
-                            <li class="site-menu-item">
-                                <a class="animsition-link" href="uikit/colors.html" data-slug="uikit-colors">
+                                <a class="animsition-link" href="{{ url('peacekeeping') }}" data-slug="uikit-buttons">
                                     <i class="site-menu-icon " aria-hidden="true"></i>
                                     <span class="site-menu-title">Manage Selection</span>
                                 </a>
                             </li>
-
+                            <li class="site-menu-item">
+                                <a class="animsition-link" href="{{ url('view_peacekeeping') }}" data-slug="uikit-buttons">
+                                    <i class="site-menu-icon " aria-hidden="true"></i>
+                                    <span class="site-menu-title">View Nominations</span>
+                                </a>
+                            </li>
+                            <li class="site-menu-item">
+                                <a class="animsition-link" href="{{ url('add_mission') }}" data-slug="uikit-buttons">
+                                    <i class="site-menu-icon " aria-hidden="true"></i>
+                                    <span class="site-menu-title">Add Mission</span>
+                                </a>
+                            </li>
 
                         </ul>
                     </li>
@@ -96,13 +101,13 @@
                         </a>
                         <ul class="site-menu-sub">
                             <li class="site-menu-item">
-                                <a class="animsition-link" href="advanced/animation.html" data-slug="advanced-animation">
+                                <a class="animsition-link" href="{{ url('promotion') }}" data-slug="advanced-animation">
                                     <i class="site-menu-icon " aria-hidden="true"></i>
-                                    <span class="site-menu-title">Promote Troops</span>
+                                    <span class="site-menu-title">Promotion Status(All)</span>
                                 </a>
                             </li>
                             <li class="site-menu-item">
-                                <a class="animsition-link" href="advanced/lightbox.html" data-slug="advanced-lightbox">
+                                <a class="animsition-link" href="{{ url('manage_promotions') }}" data-slug="advanced-lightbox">
                                     <i class="site-menu-icon " aria-hidden="true"></i>
                                     <span class="site-menu-title">Manage Promotions</span>
                                 </a>
@@ -119,15 +124,15 @@
                         </a>
                         <ul class="site-menu-sub">
                             <li class="site-menu-item">
-                                <a class="animsition-link" href="structure/alerts.html" data-slug="structure-alerts">
+                                <a class="animsition-link" href="{{ url('courses') }}" data-slug="structure-alerts">
                                     <i class="site-menu-icon " aria-hidden="true"></i>
-                                    <span class="site-menu-title">Select Personel</span>
+                                    <span class="site-menu-title">Manage Selection</span>
                                 </a>
                             </li>
                             <li class="site-menu-item">
-                                <a class="animsition-link" href="structure/blockquotes.html" data-slug="structure-blockquotes">
+                                <a class="animsition-link" href="{{ url('view_courses') }}" data-slug="structure-alerts">
                                     <i class="site-menu-icon " aria-hidden="true"></i>
-                                    <span class="site-menu-title">Manage Personel</span>
+                                    <span class="site-menu-title">View Nominations</span>
                                 </a>
                             </li>
 
@@ -166,11 +171,11 @@
         </div>
     </div>
     <div class="site-menubar-footer">
-        <a href="{{ asset('add_new') }}}}" class="fold-show" data-placement="top"
+        <a href="{{ url('add_new') }}" class="fold-show" data-placement="top"
            data-original-title="Settings">
             <span class="icon wb-settings" aria-hidden="true"></span>
         </a>
-        <a href="javascript: void(0);" data-placement="top" data-toggle="tooltip" data-original-title="Lock">
+        <a href="{{ url('logout') }}" data-placement="top" data-toggle="tooltip" data-original-title="Lock">
             <span class="icon wb-eye-close" aria-hidden="true"></span>
         </a>
         <a href="{{ url('logout') }}" data-placement="top" data-toggle="tooltip" data-original-title="Logout">

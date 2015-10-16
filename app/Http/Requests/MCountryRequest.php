@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class PersonnelRequest extends Request
+class MCountryRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,11 +23,8 @@ class PersonnelRequest extends Request
      */
     public function rules()
     {
-        return [
-            'serviceno'=>'required','rankno'=>'required',
-            'depart'=>'required','firstname'=>'required','lastname'=>'required',
-            'dob'=>'required','doe'=>'required','nok'=>'required',
-            'promdate'=>'required','maritalstatus'=>'required','gender'=>'required','religion'=>'required'
+        return ['miss_country'=>'required','miss_name'=>'required'
+            //
         ];
     }
 }

@@ -44,13 +44,13 @@
                             <label class="control-label" for="select">Rank</label>
                             <select  name="rankno" class="form-control" id="select">
                                 <option disabled="disabled" selected >Select</option>
-                                <option value="Pte">Pte</option>
-                                <option vlaue="L/Cpl">L/Cpl</option>
-                                <option value="Clp">Clp</option>
-                                <option value="Sgt">Sgt</option>
-                                <option value="S/Sgt">S/Sgt</option>
-                                <option value="WOII">WOII</option>
-                                <option value="WOI">WOI</option>
+                                <option value="1">Pte</option>
+                                <option value="2">L/Cpl</option>
+                                <option value="3">Clp</option>
+                                <option value="4">Sgt</option>
+                                <option value="5">S/Sgt</option>
+                                <option value="6">WOII</option>
+                                <option value="7">WOI</option>
                             </select>
                         </div>
                         <div class="form-group form-material">
@@ -82,7 +82,7 @@
                             {!! Form::text('nok','',array('class'=>'form-control','placeholder'=>'Next of Kin')) !!}
                         </div>
                         <div class="form-group form-material">
-                            <label class="control-label">Promotion Date</label>
+                            <label class="control-label">last Promotion Date</label>
                              {!! Form::text('promdate','',array('class'=>'form-control','placeholder'=>'dd/mm/yyyy')) !!}
                         </div>
                         {{--<div class="form-group form-material">--}}

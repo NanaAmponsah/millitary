@@ -62,7 +62,7 @@
     <div class="page-content vertical-align-middle">
       <div class="brand">
         <img class="brand-img" src="{{ asset('assets/images/GAF.png') }}" alt="...">
-        <h1 class="brand-text">DEPLOYMENT SYSTEM </h1>
+        <h1 class="brand-text">DEPLOYMENT MANAGEMENT SYSTEM </h1>
         <h2 class="brand-text">GHANA ARMED FORCES</h2>
       </div>
       @if( session()->has('error_message') )
@@ -85,10 +85,10 @@
           placeholder="Password">
         </div>
         <div class="form-group clearfix">
-          <div class="checkbox-custom checkbox-inline pull-left">
-            <input type="checkbox" id="inputCheckbox" name="checkbox">
-            <label for="inputCheckbox">Remember me</label>
-          </div>
+          {{--<div class="checkbox-custom checkbox-inline pull-left">--}}
+            {{--<input type="checkbox" id="inputCheckbox" name="checkbox">--}}
+            {{--<label for="inputCheckbox">Remember me</label>--}}
+          {{--</div>--}}
 
         </div>
         <button type="submit" class="btn btn-primary btn-block">Sign in</button>

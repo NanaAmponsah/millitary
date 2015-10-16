@@ -9,12 +9,17 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\Controller;
+use App\Personnel;
 
 class PagesController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $army = Personnel::where('depart', 'Army')->count();
+        $navy = Personnel::where('depart', 'Navy')->count();
+        $airforce = Personnel::where('depart', 'Airforce')->count();
+
+        return view('index', compact('army','navy','airforce'));
     }
     public function login(){
         return view('login');

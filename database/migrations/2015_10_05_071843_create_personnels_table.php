@@ -27,6 +27,9 @@ class CreatePersonnelsTable extends Migration
             $table->string('maritalstatus');
             $table->string('gender');
             $table->string('religion');
+            $table->string('nominated_for_peace')->nullable();
+            $table->string('nominated_for_course')->nullable();
+            $table->string('nominated_for_prom')->nullable();
             $table->timestamps();
         });
     }
