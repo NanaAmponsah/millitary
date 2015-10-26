@@ -88,13 +88,13 @@
                                         {{ 'WOI' }}
                                     @endif
                                 </td>
-                                <td>
-                                    @if($person->isDue)
-                                        <span class="label label-success">Due</span> {{ App\Personnel::$ranks[$person->rankno] }}
-                                    @else
-                                        <span class="label label-danger">Not Due</span>
-                                    @endif
-                                </td>
+                                {{--<td>--}}
+                                    {{--@if($person->isDue)--}}
+                                        {{--<span class="label label-success">Due</span> {{ App\Personnel::$ranks[$person->rankno] }}--}}
+                                    {{--@else--}}
+                                        {{--<span class="label label-danger">Not Due</span>--}}
+                                    {{--@endif--}}
+                                {{--</td>--}}
                                 <td>
                                     @if($person->nominated_for_prom=='1')
                                         <span class="label label-success">Nominated</span>
